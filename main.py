@@ -24,10 +24,10 @@ from handler.LogoutHandler import LogoutHandler
 
 application = tornado.web.Application(handlers = [
     (r"/login", LoginHandler)
-    , (r'/', MainHandler)
     , (r"/logout", LogoutHandler)
+    , (r'/', MainHandler)
+    ]
 
-]
     , template_path=os.path.join(os.path.dirname(__file__), "templates")
     # 静态文件
     , static_path=os.path.join(os.path.dirname(__file__), "static")
