@@ -26,7 +26,12 @@ application = tornado.web.Application(handlers = [
     (r"/login", LoginHandler)
     , (r'/', MainHandler)
     , (r"/logout", LogoutHandler)
-], autoreload=False)
+
+]
+    , template_path=os.path.join(os.path.dirname(__file__), "templates")
+    # 静态文件
+    , static_path=os.path.join(os.path.dirname(__file__), "static")
+    , autoreload=False)
 
 async def on_server_started():
     g_logger.info("Server Started!")
