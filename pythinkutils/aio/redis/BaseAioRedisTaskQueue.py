@@ -31,7 +31,7 @@ class BaseAioRedisTaskQueue(object):
         while True:
             try:
                 from pythinkutils.aio.redis.ThinkAioRedisPool import ThinkAioRedisPool
-                conn_pool = await ThinkAioRedisPool.get_default_conn_pool()
+                conn_pool = await ThinkAioRedisPool.mk_conn_pool()
                 with await conn_pool as conn:
                     szRet = await conn.execute('LPOP', self.m_szQueueName)
                     if bytes == type(szRet):
@@ -53,7 +53,7 @@ class BaseAioRedisTaskQueue(object):
     async def put_real(cls, szQueueName = "task_queue_default", szMsg = ""):
         try:
             from pythinkutils.aio.redis.ThinkAioRedisPool import ThinkAioRedisPool
-            conn_pool = await ThinkAioRedisPool.get_default_conn_pool()
+            conn_pool = await ThinkAioRedisPool.mk_conn_pool()
             with await conn_pool as conn:
                 await conn.execute("RPUSH", szQueueName, szMsg)
         except Exception as e:
@@ -61,10 +61,11 @@ class BaseAioRedisTaskQueue(object):
 
     @classmethod
     async def put(cls, szQueueName = "task_queue_default", szMsg = "", nowait = False):
-        if nowait:
-            asyncio.gather(cls.put_real(szQueueName, szMsg))
-        else:
-            await cls.put_real(szQueueName, szMsg)
+        await cls.put_real(szQueueName, szMsg)
+        # if nowait:
+        #     await asyncio.gather(cls.put_real(szQueueName, szMsg))
+        # else:
+        #     await cls.put_real(szQueueName, szMsg)
 
     @classmethod
     def put_nowait(cls, szQueueName = "task_queue_default", szMsg = ""):
