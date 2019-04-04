@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-{% load staticfiles %}
-{% load urlcheck %}
 <html>
     <head>
         <title>{{ title_insert }}</title>
@@ -28,9 +26,9 @@
 
         <link href="{{static_url('global/plugins/jquery-multi-select/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
         <!--
-        <link href="{{static_url('global/plugins/data_table/datatables.css" rel="stylesheet" type="text/css" />
-        <link href="{{static_url('global/plugins/DataTablesNew/dataTables.min.css" rel="stylesheet" type="text/css" />
-        <link href="{{static_url('global/plugins/DataTablesNew/DataTables-1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{static_url('global/plugins/data_table/datatables.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{static_url('global/plugins/DataTablesNew/dataTables.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{static_url('global/plugins/DataTablesNew/DataTables-1.10.16/css/dataTables.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
         -->
         <link href="{{static_url('global/plugins/DataTablesNew/DataTables-1.10.16/css/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css" />
 
@@ -39,7 +37,7 @@
         <link href="{{static_url('global/plugins/DataTablesNew/Responsive-2.2.1/css/responsive.bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{static_url('global/plugins/DataTablesNew/RowGroup-1.0.2/css/rowGroup.dataTables.min.css')}}" rel="stylesheet" type="text/css" />
         <!--
-        <link href="{{static_url('global/plugins/Buttons-1.5.0/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{static_url('global/plugins/Buttons-1.5.0/css/buttons.dataTables.min.css')}}" rel="stylesheet" type="text/css" />
         -->
 
         <link href="{{static_url('js/lib/custom/jquery.quickSearch.css')}}" rel="stylesheet" type="text/css" />
@@ -65,7 +63,7 @@
         <link href="{{static_url('layouts/layout/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{static_url('layouts/layout/css/themes/darkblue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
         <!-- END THEME LAYOUT STYLES -->
-        <!--<link href="{{static_url('global/plugins/bootstrap-treeview-1.2.0/css/bootstrap-treeview.css" rel="stylesheet" type="text/css" />-->
+        <!--<link href="{{static_url('global/plugins/bootstrap-treeview-1.2.0/css/bootstrap-treeview.css')}}" rel="stylesheet" type="text/css" />-->
 
         <!--BEGIN CUSTOM STYLE-->
         <style type="text/css">
@@ -140,7 +138,7 @@
                 }
         </style>
         {% block cs_block %}
-        {% endblock %}
+        {% end %}
         <!--END CUSTOM STYLE-->
         </head>
         <!-- END HEAD -->
@@ -221,12 +219,12 @@
                                             <i class="icon-lock"></i> Lock Screen </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'changePassword' %}">
+                                        <a href="#">
                                             <i class="icon-key"></i>修改密码
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'logout' %}">
+                                        <a href="#">
                                             <i class="fa fa-unlock"></i> 登出 </a>
                                     </li>
                                 </ul>
@@ -252,20 +250,20 @@
                             <li class="heading">
                                 <h3 class="uppercase">媒体应用</h3>
                             </li>
-                            <li class="nav-item {% active_open request 'media_manage' %}">
+                            <li class="nav-item">
                                 <a href="javascript:;" class="nav-link nav-toggle" onclick="">
                                     <i class="fa fa-tv"></i>
                                     <span class="title">媒体应用管理</span>
                                     <span class="arrow"></span>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li class="nav-item {% active request 'app_list' %}">
-                                        <a href="{% url 'app_list' %}" class="nav-link ">
+                                    <li class="nav-item ">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">应用管理</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item {% active request 'supplyOverview' %}">
-                                        <a href="{% url 'supply_overview' %}" class="nav-link ">
+                                    <li class="nav-item ">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">版位管理</span>
                                         </a>
                                     </li>
@@ -274,107 +272,100 @@
                             <li class="heading">
                                 <h3 class="uppercase">广告管理</h3>
                             </li>
-                            <li class="nav-item {% active_open request 'supplyManage' %}">
+                            <li class="nav-item">
                                 <a href="javascript:;" class="nav-link nav-toggle" onclick="">
                                     <i class="fa fa-file"></i>
                                     <span class="title">广告SSP</span>
                                     <span class="arrow"></span>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li class="nav-item {% active request 'adTypeManage' %}">
-                                        <a href="{% url 'ad_type_manage' %}" class="nav-link ">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">广告类型管理</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item {% active request 'adNetworkLine' %}">
-                                        <a href="{% url 'ad_network_line' %}" class="nav-link ">
+                                    <li class="nav-item ">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">广告网络管理</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item {% active request 'adNetworkLineConfig' %}">
-                                        <a href="{% url 'ad_network_line_config' %}" class="nav-link ">
+                                    <li class="nav-item ">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">广告网络配置</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {% active_open request 'statistic' %}">
+                            <li class="nav-item">
                                 <a href="javascript:;" class="nav-link nav-toggle" onclick="">
                                     <i class="fa fa-table"></i>
                                     <span class="title">数据收益</span>
                                     <span class="arrow"></span>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li class="nav-item {% active request 'real_income_statistic' %}">
-                                        <a href="{% url 'real_income_statistic' %}" class="nav-link ">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">实时数据统计</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item {% active request 'slot_income_statistic' %}">
-                                        <a href="{% url 'slot_income_statistic' %}" class="nav-link ">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">版位数据统计</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item {% active request 'activity_income_statistic' %}">
-                                        <a href="{% url 'activity_income_statistic' %}" class="nav-link ">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">广告活动数据统计</span>
                                         </a>
                                     </li>
 
-                                    <li class="nav-item {% active request 'business_income_insert' %}">
-                                        <a href="{% url 'business_income_insert' %}" class="nav-link ">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">业务收入录入</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item {% active request 'bussiness_all_data_collect' %}">
-                                        <a href="{% url 'bussiness_all_data_collect' %}" class="nav-link ">
+                                    <li class="nav-item ">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">媒体数据统计汇总</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {% active_open request 'demandManage' %}">
+                            <li class="nav-item">
                                 <a href="javascript:;" class="nav-link nav-toggle" onclick="">
                                     <i class="fa fa-life-bouy"></i>
                                     <span class="title">广告DSP</span>
                                     <span class="arrow"></span>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li class="nav-item {% active request 'advertiserManage' %}">
-                                        <a href="{% url 'advertiser_manage' %}" class="nav-link ">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">广告商管理</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item {% active request 'demandOverview' %}">
-                                        <a href="{% url 'demand_overview' %}" class="nav-link ">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">广告活动管理</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {% active_open request 'sdk_dsp' %}">
+                            <li class="nav-item">
                                 <a href="javascript:;" class="nav-link nav-toggle" onclick="">
                                     <i class="fa fa-list"></i>
                                     <span class="title">SDK源策略DSP</span>
                                     <span class="arrow"></span>
                                 </a>
                                 <ul class="sub-menu">
-                                    {% if rc %}
-                                    <li class="nav-item {% active request 'ad_source_manage' %}">
-                                        <a href="{% url 'ad_source_manage' %}" class="nav-link ">
-                                            <span class="title">广告源管理</span>
-                                        </a>
-                                    </li>
-                                    {% endif %}
-                                    <li class="nav-item {% active request 'sdk_strategy_overview' %}">
-                                        <a href="{% url 'sdk_strategy_overview' %}" class="nav-link ">
+                                    <li class="nav-item ">
+                                        <a href="#" class="nav-link ">
                                             <span class="title">源策略配置</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item {% active_open request 'arms_manage' %}">
-                                <a href="{% url 'get_arms_overview' %}" class="nav-link nav-toggle" onclick="">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link nav-toggle" onclick="">
                                     <i class="fa fa-paperclip"></i>
                                     <span class="title">ARMS 通用数据查询</span>
                                 </a>
@@ -409,7 +400,7 @@
 
                         {% block body_block %}
                         <!-- different content here,anything outside will be inherited if extend-->
-                        {% endblock %}
+                        {% end %}
 
                     </div>
                     <!-- END CONTENT BODY-->
@@ -497,9 +488,9 @@
         <script src="{{static_url('global/plugins/DataTablesNew/Responsive-2.2.1/js/responsive.bootstrap.min.js')}}" type="text/javascript"></script>
         <script src="{{static_url('global/plugins/DataTablesNew/RowGroup-1.0.2/js/dataTables.rowGroup.min.js')}}" type="text/javascript"></script>
         <!--
-        <script src="{{static_url('global/plugins/data_table/datatables.js" type="text/javascript"></script>
+        <script src="{{static_url('global/plugins/data_table/datatables.js')}}" type="text/javascript"></script>
         -->
-        <!--<script src="{{static_url('global/plugins/bootstrap-treeview-1.2.0/js/bootstrap-treeview.js"></script>-->
+        <!--<script src="{{static_url('global/plugins/bootstrap-treeview-1.2.0/js/bootstrap-treeview.js')}}"></script>-->
         <script src="http://cdn.datatables.net/plug-ins/1.10.16/pagination/select.js" type="text/javascript"></script>
         <script src="https://cdn.bootcss.com/select2/4.0.5/js/select2.full.min.js"></script>
         <script src="https://cdn.bootcss.com/select2/4.0.5/js/select2.min.js"></script>
@@ -519,7 +510,7 @@
 
 
         {% block js_block %}
-        {% endblock %}
+        {% end %}
         <!-- END CUSTOM SCRIPT-->
     </body>
 </html>

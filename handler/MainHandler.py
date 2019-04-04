@@ -9,5 +9,5 @@ class MainHandler(BaseSimpleAuthHandler):
 
     @page_login_required()
     async def get(self):
-        self.render("index.html", info="Hello World")
+        self.render("index.html", info="Hello World", title_insert = "FXXK", username_insert="FXXK1")
         # self.write("HOMEPAGE To be continued...")
