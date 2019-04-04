@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.douban.com/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+redis = "*"
+pymysql = "*"
+dbutils = "*"
+rainbow = "*"
+rainbow-logging-handler = "*"
+coloredlogs = "*"
+logutils = "*"
+aiomysql = "*"
+aiorwlock = "*"
+aioredis = "*"
+tornado = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
