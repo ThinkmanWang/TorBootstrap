@@ -1,0 +1,648 @@
+{% extends "base_page.html" %}
+{% block cs_block %}
+
+{% end %}
+
+{% block body_block %}
+<div class="portlet box green-meadow">
+    <!--<h4 class="caption-subject bold uppercase">广告活动数据统计</h4>-->
+
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-notebook"></i>
+            <span class="caption-subject bold uppercase">广告活动数据统计</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="panel panel-default">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapse_root">
+            <h4 class="panel-title">
+                <a>
+                    <span id="collapse_root_arraw_down" class="glyphicon glyphicon-chevron-down"></span>
+                    <span id="collapse_root_arraw_up" class="glyphicon glyphicon-chevron-up"></span>
+                    高级选项
+                </a>
+            </h4>
+        </div>
+        <div id="collapse_root" class="panel-collapse collapse" style="padding: 10px">
+
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion"
+                     href="#collapse1">
+                    <h4 class="panel-title">
+                        <a>
+                            <span id="collapse1_arraw_down" class="glyphicon glyphicon-chevron-down"></span>
+                            <span id="collapse1_arraw_up" class="glyphicon glyphicon-chevron-up"></span>
+                            维度
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="form-body row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbApp" onchange="oncbDimensionChanged()"/> 应用
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbAdSlot" onchange="oncbDimensionChanged()"/> 版位
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbSDKSource" onchange="oncbDimensionChanged()"/> SDK源
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbAdNetwork" onchange="oncbDimensionChanged()"/> 广告网络
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbAdActivity" onchange="oncbDimensionChanged()"/> 广告活动
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion"
+                     href="#collapse2">
+                    <h4 class="panel-title">
+                        <a>
+                            <span id="collapse2_arraw_down" class="glyphicon glyphicon-chevron-down"></span>
+                            <span id="collapse2_arraw_up" class="glyphicon glyphicon-chevron-up"></span>
+                            请求属性
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="form-body row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbSelectAll1" /> 全选
+                                        </label>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <!--<input type="checkbox" id="cbCountOfRequest"-->
+                                                   <!--onchange="oncbCountOfRequestChanged()"/>-->
+                                        <!--<label for="cbCountOfRequest">请求数</label>-->
+                                        <label>
+                                            <input type="checkbox" id="cbCountOfRequest"
+                                                   onchange="oncbCountOfRequestChanged()" /> 请求数
+                                            <!--必须同时选 FullChannelSuccess 和 FullChannelRequest-->
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbCountOfSuccess"
+                                                   onchange="oncbCountOfSuccessChanged()"/> 成功数
+                                            <!--必须同时选 FullChannelSuccess 和 FullChannelRequest-->
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbFilling" onchange="oncbFillingChanged()"/> 填充率
+                                            <!--必须同时选 FullChannelSuccess 和 FullChannelRequest-->
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbCountOfRequestUser"/> 请求用户数
+                                            <!--必须同时选 FullChannelSuccess 和 FullChannelRequest-->
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbCountOfSuccessUser"/> 成功用户数
+                                            <!--必须同时选 FullChannelSuccess 和 FullChannelRequest-->
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" data-toggle="collapse" data-parent="#accordion"
+                     href="#collapse3">
+                    <h4 class="panel-title">
+                        <a>
+                            <span id="collapse3_arraw_down" class="glyphicon glyphicon-chevron-down"></span>
+                            <span id="collapse3_arraw_up" class="glyphicon glyphicon-chevron-up"></span>
+                            转化属性
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="form-body row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <!--<div class="col-lg-2 col-md-2 col-sm-2">-->
+                                    <!--<label>-->
+                                    <!--<input type="checkbox" id="cbCount" /> 记录总数-->
+                                    <!--</label>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-2 col-md-2 col-sm-2">-->
+                                    <!--<label>-->
+                                    <!--<input type="checkbox" id="cbRequestOfUser" /> 请求用户数-->
+                                    <!--</label>-->
+                                    <!--</div>-->
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbSelectAll2" /> 全选
+                                        </label>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbViews" onchange="oncbViewsChanged()"/> 曝光数
+                                        </label>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbClick" onchange="onClickChanged()"/> 点击数
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbRatioOfClick" onchange="onRatioOfClickChanged()"/>
+                                            点击率
+                                            <!--必须同时选 clickOfUser 和 click-->
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbViewsOfUser" onchange="oncbViewsOfUserChanged()"/> 曝光用户数
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbClickOfUser" onchange="onClickOfUserChanged()"/>
+                                            点击用户数
+                                        </label>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbDownloads"/> 下载数
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbDownloadsOfUser"/> 下载用户数
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbInstalled"/> 安装数
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbInstalledOfUser"/> 安装用户数
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbIncome"/> 收入
+                                            <!--必须同时选 FullChannelSuccess 和 FullChannelRequest-->
+                                        </label>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbCPM"/> CPM
+                                            <!--必须同时选 FullChannelSuccess 和 FullChannelRequest-->
+                                        </label>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbCPC"/> CPC
+                                            <!--必须同时选 FullChannelSuccess 和 FullChannelRequest-->
+                                        </label>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2">
+                                        <label>
+                                            <input type="checkbox" id="cbUVIncome"/> 单UV收益
+                                            <!--必须同时选 FullChannelSuccess 和 FullChannelRequest-->
+                                        </label>
+                                    </div>
+
+                                    <!--<div class="col-lg-12 col-md-12 col-sm-12">-->
+
+                                    <!--</div>-->
+
+
+                                    <!--<div class="col-lg-2 col-md-2 col-sm-2">-->
+                                    <!--<label>-->
+                                    <!--<input type="checkbox" id="cbFullChannelSuccessOfUser" onchange="onFullChannelSuccessOfUserChanged()" /> 总线请求成功用户数-->
+                                    <!--</label>-->
+                                    <!--</div>-->
+                                    <div class="col-lg-2 col-md-2 col-sm-2" style="visibility: hidden;">
+                                        <label>
+                                            <input type="checkbox" id="cbSingleChannelRequest"
+                                                   onchange="onSingleChannelRequestChanged()"/> 单线请求数
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2" style="visibility: hidden;">
+                                        <label>
+                                            <input type="checkbox" id="cbSingleChannelSuccess"
+                                                   onchange="onSingleChannelSuccessChanged()"/> 单线成功数
+                                        </label>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2" style="visibility: hidden;">
+                                        <label>
+                                            <input type="checkbox" id="cbRatioOfSingleChannelFilling"
+                                                   onchange="onRatioOfSingleChannelFillingChanged()"/> 单线填充率
+                                            <!--必须同时选 FullChannelSuccess 和 FullChannelRequest-->
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2" style="visibility: hidden;">
+                                        <label>
+                                            <input type="checkbox" id="cbFullChannelRequest"
+                                                   onchange="onFullChannelRequestChanged()"/> 总线请求数
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2" style="visibility: hidden;">
+                                        <label>
+                                            <input type="checkbox" id="cbFullChannelSuccess"
+                                                   onchange="onFullChannelRequestChanged()"/> 总线成功数
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2" style="visibility: hidden;">
+                                        <label>
+                                            <input type="checkbox" id="cbRatioOfFullChannelFilling"
+                                                   onchange="onRatioOfFullChannelFillingChanged()"/> 总线填充率
+                                            <!--必须同时选 FullChannelSuccess 和 FullChannelRequest-->
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+
+        <!--<div class="portlet box yellow-lemon">-->
+            <!--<div class="portlet-title">-->
+                <!--<div class="caption">-->
+                    <!--<i class="icon-globe-alt"></i>-->
+                    <!--维度-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="portlet-body">-->
+
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="portlet box yellow-lemon">-->
+            <!--<div class="portlet-title">-->
+                <!--<div class="caption">-->
+                    <!--<i class="icon-globe-alt"></i>-->
+                    <!--请求属性-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="portlet-body">-->
+
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="portlet box yellow-lemon">-->
+            <!--<div class="portlet-title">-->
+                <!--<div class="caption">-->
+                    <!--<i class="icon-globe-alt"></i>-->
+                    <!--转化属性-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="portlet-body">-->
+
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <div class="form-body row">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn default" type="button" style="background-color: white; outline: none">
+                                应用
+                            </button>
+                        </span>
+                            <select id="appList" name="appList" class="form-control" >
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn default" type="button" style="background-color: white; outline: none">
+                                版位
+                            </button>
+                        </span>
+                            <select id="adSlotList" name="adSlotList" class="form-control" >
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn default" type="button" style="background-color: white; outline: none">
+                                SDK源
+                            </button>
+                        </span>
+                            <select id="sdkSourceList" name="sdkSourceList" class="form-control" >
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn default" type="button" style="background-color: white; outline: none">
+                                广告网络
+                            </button>
+                        </span>
+                            <select id="adNetworkList" name="adNetworkList" class="form-control" >
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h5></h5>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn default" type="button" style="background-color: white; outline: none">
+                                广告活动
+                            </button>
+                        </span>
+                            <select id="adActivityList" name="adActivityList" class="form-control" >
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn default" type="button" style="background-color: white; outline: none">
+                                日期分割
+                            </button>
+                        </span>
+                            <select id="dateSplitList" name="dateSplitList" class="form-control">
+                                <option value="hour">按小时</option>
+                                <option value="day" selected="selected">按天</option>
+                                <option value="all">全部</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-6">
+                        <!--<label class="bold dontwrap control-label">日期</label>-->
+                        <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn default" type="button" style="background-color: white; outline: none">
+                                日期
+                            </button>
+                        </span>
+                            <input id="dateStart" type="text" class="form-control date-picker date_n_time"/>
+                            <span class="input-group-btn">
+                            <button class="btn default" type="button">
+                                <i class="fa fa-calendar"></i>
+                            </button>
+                        </span>
+
+                            <span class="input-group-btn">
+                            <button class="btn default" type="button" style="background-color: white; outline: none">
+                                ~
+                            </button>
+                        </span>
+
+                            <input id="dateEnd" type="text" class="form-control date-picker date_n_time">
+                            <span class="input-group-btn">
+                            <button class="btn default" type="button">
+                                <i class="fa fa-calendar"></i>
+                            </button>
+                        </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-6">
+                        <button id="btn_search" type="button" class="btn red" onclick="doSearch()">
+                            <i class="fa fa-search"></i>
+                            查询
+                        </button>
+
+                        <button id="btn_save_query" class="btn btn-success">
+                            <i class="fa fa-save"> 保存查询</i>
+                        </button>
+                        <button id="btn_load_query" class="btn btn-warning">
+                            <i class="fa fa-download"> 载入查询</i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+<div id="result_manage" class="dataTables_wrapper no-footer" style="margin-top: 50px">
+    <div id="result_tb_toolbar">
+    </div>
+    <table id="result_tb"
+        data-search="true"
+         data-toolbar="#result_tb_toolbar"
+        data-pagination="true" data-page-size="25"
+        data-striped="true" data-show-toggle="true"
+        data-show-export="true" data-pagination-v-align="both">
+    </table>
+</div>
+
+<div id="dlg_loading" class="modal fade ba-modal-lg" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-body row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="input-group select2-bootstrap-append">
+                                <img id="ic_loading" src="/assets/global/img/ajax-loading.gif"/>
+                                <label for="ic_loading" class="control-label"
+                                       style="margin-left: 10px; font-size: large">Loading...</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="save_query_modal" class="modal fade ba-modal-md" role="dialog" style="display: none;">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <h4 id="add-modal-title" class="modal-title">保存查询</h4>
+            </div>
+            <div class="modal-body">
+                <div class="portlet-body form">
+                    <div class="form-body row">
+                        <div class="row col-lg-12 col-md-12 col-sm-12">
+                            <div class=" col-lg-1 col-md-1 col-sm-1"></div>
+                            <div class=" col-lg-10 col-md-8 col-sm-8">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button class="btn default" type="button" style="background-color: white; outline: none">
+                                            查询名称
+                                        </button>
+                                    </span>
+                                    <input type="text" class="form-control" id="save_query_name">
+                                </div>
+                            </div>
+                            <div class=" col-lg-1 col-md-1 col-sm-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id = "save_query_confirm" type="button" class="btn btn-success">保存</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="get_query_modal" class="modal fade ba-modal-md" role="dialog" style="display: none;">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+             <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <h4 id="add-modal-title" class="modal-title">查询列表</h4>
+            </div>
+            <div class="modal-body">
+                <div id="query_data_manager" class="dataTables_wrapper no-footer" style="margin-top: 10px">
+                    <table id="query_data_tb"
+                           data-search="false"
+                           data-pagination="true" data-page-size="25"
+                           data-striped="true" data-show-toggle="false"
+                           data-show-export="false" data-pagination-v-align="both">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% end %}
+
+{% block js_block %}
+<script>
+    $('#collapse_root').on('show.bs.collapse', function () {
+	        //点击展开cooOne这个块时的事件
+            console.log("collapse1 show");
+            $('#collapse_root_arraw_down').hide();
+            $('#collapse_root_arraw_up').show();
+        });
+        $('#collapse_root').on('hidden.bs.collapse', function () {
+            //点击隐藏cooOne这个块时的事件
+            console.log("collapse1 hidden");
+            $('#collapse_root_arraw_down').show();
+            $('#collapse_root_arraw_up').hide();
+        });
+
+        $('#collapse1').on('show.bs.collapse', function () {
+	        //点击展开cooOne这个块时的事件
+            console.log("collapse1 show");
+            $('#collapse1_arraw_down').hide();
+            $('#collapse1_arraw_up').show();
+        });
+        $('#collapse1').on('hidden.bs.collapse', function () {
+            //点击隐藏cooOne这个块时的事件
+            console.log("collapse1 hidden");
+            $('#collapse1_arraw_down').show();
+            $('#collapse1_arraw_up').hide();
+        });
+
+        $('#collapse2').on('show.bs.collapse', function () {
+	        //点击展开cooOne这个块时的事件
+            console.log("collapse2 show");
+            $('#collapse2_arraw_down').hide();
+            $('#collapse2_arraw_up').show();
+        });
+        $('#collapse2').on('hidden.bs.collapse', function () {
+            //点击隐藏cooOne这个块时的事件
+            console.log("collapse2 hidden");
+            $('#collapse2_arraw_down').show();
+            $('#collapse2_arraw_up').hide();
+        });
+
+        $('#collapse3').on('show.bs.collapse', function () {
+	        //点击展开cooOne这个块时的事件
+            console.log("collapse3 show");
+            $('#collapse3_arraw_down').hide();
+            $('#collapse3_arraw_up').show();
+        });
+        $('#collapse3').on('hidden.bs.collapse', function () {
+            //点击隐藏cooOne这个块时的事件
+            console.log("collapse3 hidden");
+            $('#collapse3_arraw_down').show();
+            $('#collapse3_arraw_up').hide();
+        });
+
+        function initCollapseArraw() {
+            $('#collapse_root_arraw_down').show();
+            $('#collapse_root_arraw_up').hide();
+
+            $('#collapse1_arraw_down').hide();
+            $('#collapse1_arraw_up').show();
+
+            $('#collapse2_arraw_down').hide();
+            $('#collapse2_arraw_up').show();
+
+            $('#collapse3_arraw_down').hide();
+            $('#collapse3_arraw_up').show();
+        }
+
+        function initData() {
+            initCollapseArraw();
+        }
+
+        $(document).ready(function () {
+            initData();
+            // initDate()
+            // initResultTb()
+            // initCPList()
+        });
+</script>
+{% end %}

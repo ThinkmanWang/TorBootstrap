@@ -21,10 +21,12 @@ from pythinkutils.common.StringUtils import *
 from handler.MainHandler import MainHandler
 from handler.LoginHandler import LoginHandler
 from handler.LogoutHandler import LogoutHandler
+from handler.Testhandler import TestHandler
 
 application = tornado.web.Application(handlers = [
     (r"/login", LoginHandler)
     , (r"/logout", LogoutHandler)
+    , (r"/test", TestHandler)
     , (r'/', MainHandler)
     ]
 
