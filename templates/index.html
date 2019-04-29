@@ -6,7 +6,8 @@
 
 {% block body_block %}
 
-<h1>{{info}}</h1>
+<h1>{{ info }}</h1>
+<h1>{{ "permission_fxxk" in current_user["permissions"] }}</h1>
 
 {% end %}
 

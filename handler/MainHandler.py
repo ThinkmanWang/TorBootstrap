@@ -4,6 +4,7 @@ import sys
 import os
 
 from pythinkutils.aio.auth.tornado.handler.BaseSimpleAuthHandler import *
+from pythinkutils.common.object2json import *
 
 class MainHandler(BaseSimpleAuthHandler):
 
