@@ -29,7 +29,8 @@ application = tornado.web.Application(handlers = [
     , (r"/test", TestHandler)
     , (r'/', MainHandler)
     ]
-
+    
+    , cookie_secret="BUEa2ckrQtmBofim3aP6cwr/acg0LEu6mHUxq4O3EY0="
     , template_path=os.path.join(os.path.dirname(__file__), "templates")
     # 静态文件
     , static_path=os.path.join(os.path.dirname(__file__), "static")

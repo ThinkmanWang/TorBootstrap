@@ -7,7 +7,15 @@
 {% block body_block %}
 
 <h1>{{ info }}</h1>
-<h1>{{ "permission_fxxk" in current_user["permissions"] }}</h1>
+
+<h6>{{ request.full_url() }}</h6>
+
+
+{% if "permission_fxxk" in current_user["permissions"] %}
+<h1>Has permission</h1>
+{% else %}
+<h1>permission denied</h1>
+{% end %}
 
 {% end %}
 

@@ -8,7 +8,12 @@ from pythinkutils.common.object2json import *
 
 class MainHandler(BaseSimpleAuthHandler):
 
+    def func_test(self):
+        return "TEEEEEEEST FXXXXXXXXXXXXXXXK"
+
     @page_login_required()
     async def get(self):
         self.render("index.html", info="Hello World", title_insert = "FXXK", username_insert="FXXK1")
         # self.write("HOMEPAGE To be continued...")
+
+        self.request.full_url()
