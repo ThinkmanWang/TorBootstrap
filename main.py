@@ -19,17 +19,17 @@ from pythinkutils.aio.auth.tornado.handler.BaseSimpleAuthHandler import *
 from pythinkutils.common.StringUtils import *
 
 from handler.MainHandler import MainHandler
-from handler.LoginHandler import LoginHandler
+from pythinkutils.aio.auth.tornado.handler.ThinkLoginHandler import ThinkLoginHandler
 from handler.LogoutHandler import LogoutHandler
 from handler.Testhandler import TestHandler
 
 application = tornado.web.Application(handlers = [
-    (r"/login", LoginHandler)
+    (r"/login", ThinkLoginHandler)
     , (r"/logout", LogoutHandler)
     , (r"/test", TestHandler)
     , (r'/', MainHandler)
     ]
-    
+
     , cookie_secret="BUEa2ckrQtmBofim3aP6cwr/acg0LEu6mHUxq4O3EY0="
     , template_path=os.path.join(os.path.dirname(__file__), "templates")
     # 静态文件
