@@ -23,11 +23,12 @@ from pythinkutils.aio.auth.tornado.handler.ThinkLoginHandler import ThinkLoginHa
 from handler.LogoutHandler import LogoutHandler
 from handler.Testhandler import TestHandler
 
-application = tornado.web.Application(handlers = [
-    (r"/login", ThinkLoginHandler)
-    , (r"/logout", LogoutHandler)
-    , (r"/test", TestHandler)
-    , (r'/', MainHandler)
+application = tornado.web.Application(
+    handlers = [
+        (r"/login", ThinkLoginHandler)
+        , (r"/logout", LogoutHandler)
+        , (r"/test", TestHandler)
+        , (r'/', MainHandler)
     ]
     , compress_response=True
     , cookie_secret="BUEa2ckrQtmBofim3aP6cwr/acg0LEu6mHUxq4O3EY0="
