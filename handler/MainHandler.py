@@ -17,3 +17,6 @@ class MainHandler(BaseSimpleAuthHandler):
         # self.write("HOMEPAGE To be continued...")
 
         self.request.full_url()
+
+def hello():
+    return "Hello World"

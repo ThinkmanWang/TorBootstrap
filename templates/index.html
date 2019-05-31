@@ -5,10 +5,13 @@
 {% end %}
 
 {% block body_block %}
+{% from handler.MainHandler import hello %}
 
 <h1>{{ info }}</h1>
 
 <h6>{{ request.full_url() }}</h6>
+
+<h6>{{ hello() }}</h6>
 
 {% if "permission_fxxk" in current_user["permissions"] %}
 <h1>Has permission</h1>
