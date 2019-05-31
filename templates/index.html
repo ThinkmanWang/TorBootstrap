@@ -6,12 +6,15 @@
 
 {% block body_block %}
 {% from handler.MainHandler import hello %}
+{% from handler.MainHandler import MainHandler %}
+
 
 <h1>{{ info }}</h1>
 
 <h6>{{ request.full_url() }}</h6>
 
 <h6>{{ hello() }}</h6>
+<h6>{{ MainHandler.func_test() }}</h6>
 
 {% if "permission_fxxk" in current_user["permissions"] %}
 <h1>Has permission</h1>

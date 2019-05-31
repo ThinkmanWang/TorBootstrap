@@ -8,6 +8,7 @@ from pythinkutils.common.object2json import *
 
 class MainHandler(BaseSimpleAuthHandler):
 
+    @classmethod
     def func_test(self):
         return "TEEEEEEEST FXXXXXXXXXXXXXXXK"
 
