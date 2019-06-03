@@ -9,7 +9,7 @@ from pythinkutils.common.object2json import *
 class MainHandler(BaseSimpleAuthHandler):
 
     @classmethod
-    def func_test(self):
+    def func_test(cls):
         return "TEEEEEEEST FXXXXXXXXXXXXXXXK"
 
     @page_login_required()
